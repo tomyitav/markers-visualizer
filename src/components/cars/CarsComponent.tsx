@@ -1,20 +1,13 @@
 import * as React from 'react';
 import {ICarsProps} from "./types/ICarsProps";
-import gql from 'graphql-tag';
 import {graphql} from "react-apollo/graphql";
 import {addCars} from "../../store/actions/car-actions";
 import {connect} from "react-redux";
 import {IAppState} from "../../store/AppStore";
 import CarsList from "../cars-list/CarsList";
+import carQuery from "./car-query";
 
-const CarsQL = graphql<{}, {}>(gql`
-    {
-        car {
-            _id
-            name
-        }
-    }
-`);
+const CarsQL = graphql<{}, {}>(carQuery);
 
 class CarsComponent extends React.Component<ICarsProps, {}> {
 
