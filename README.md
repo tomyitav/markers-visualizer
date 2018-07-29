@@ -1,4 +1,4 @@
-## react-redux-ts-todos
+## react-redux-apollo-example
 
 Simple todo app, using react, typescript, Create React App, and redux. Can be used as react app starter
 
