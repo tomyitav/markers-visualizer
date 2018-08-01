@@ -1,15 +1,15 @@
 import {createStore} from 'redux';
 import allReducers from "./reducers/AllReducers";
-import {Task} from "../model/Task";
 import {Car} from "../model/Car";
+import {Train} from "../model/Train";
 
 export interface IAppState {
-    tasks: Task[],
+    trains: Train[],
     cars: Car[]
 }
 
 const INITIAL_STATE: IAppState = {
-    tasks: [],
+    trains: [],
     cars: [],
 }
 

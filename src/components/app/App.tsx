@@ -1,33 +1,23 @@
 import * as React from 'react';
 import './App.css';
-import TaskList from "../task-list/TaskList";
-import {IState} from "./types/IState";
-import {IProps} from "./types/IProps";
-import {connect} from "react-redux";
-import {IAppState} from "../../store/AppStore";
-import {default as TaskForm} from "../task-form/TaskForm";
 import CarsComponent from "../cars/CarsComponent";
+import {BrowserRouter, Route} from "react-router-dom";
+import CustomNavbar from "../navbar/CustomNavbar";
+import TrainsComponent from "../trains/TrainsComponent";
 
-class App extends React.Component<IProps, IState> {
-
-    constructor(props: IProps, context: any) {
-        super(props, context);
-    }
-
+class App extends React.Component<{}, {}> {
 
     public render() {
         return (
-            <div className="App">
-                <TaskForm/>
-                <TaskList tasks={this.props.tasks}/>
-                <CarsComponent />
-            </div>
-        );
-    }
+            <BrowserRouter>
+                <div>
+                    <CustomNavbar/>
+                    <Route exact={true} path="/" component={CarsComponent}/>
+                    <Route path="/car" component={CarsComponent}/>
+                    <Route path="/train" component={TrainsComponent}/>
+                </div>
+            </BrowserRouter>
+        );    }
 }
 
-const mapStateToProps = (state: IAppState) => ({
-    tasks: state.tasks,
-})
-
-export default connect(mapStateToProps)(App);
+export default App;

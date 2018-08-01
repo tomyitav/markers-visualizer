@@ -22,7 +22,6 @@ class CarsComponent extends React.Component<ICarsProps, {}> {
 
 
     public componentWillReceiveProps(nextProps: Readonly<ICarsProps>, nextContext: any): void {
-        console.log('logging data- ', nextProps.data)
         this.onDataArrival(nextProps.data);
     }
 

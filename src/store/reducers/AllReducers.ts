@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
-import tasksReducer from "./tasks-reducer";
 import carsReducer from "./cars-reducer";
+import trainsReducer from "./trains-reducer";
 
 const allReducers = combineReducers({
-    tasks: tasksReducer,
+    trains: trainsReducer,
     cars: carsReducer
 });
 
