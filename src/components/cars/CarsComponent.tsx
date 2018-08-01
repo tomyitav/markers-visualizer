@@ -20,6 +20,12 @@ class CarsComponent extends React.Component<ICarsProps, {}> {
         console.log('Component will mount');
     }
 
+
+    public componentWillReceiveProps(nextProps: Readonly<ICarsProps>, nextContext: any): void {
+        console.log('logging data- ', nextProps.data)
+        this.onDataArrival(nextProps.data);
+    }
+
     public onDataArrival = (data: any) => {
         if(data && data.car) {
             this.props.onDataArrival(data.car);
@@ -27,14 +33,13 @@ class CarsComponent extends React.Component<ICarsProps, {}> {
     }
 
     public render() {
-        if (!this.props.data) {
+        if (!this.props.cars) {
             return;
         }
-        console.log('logging data- ', this.props.data)
-        this.onDataArrival(this.props.data);
+
         return (
             <React.Fragment>
-                <h1>It works!</h1>
+                <h1>Cars</h1>
                 <CarsList cars={this.props.cars}/>
             </React.Fragment>
         )
