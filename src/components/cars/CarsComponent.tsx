@@ -6,23 +6,20 @@ import {connect} from "react-redux";
 import {IAppState} from "../../store/AppStore";
 import CarsList from "../cars-list/CarsList";
 import carQuery from "./car-query";
+import carSubscription from "./car-subscriptions";
 
 const CarsQL = graphql<{}, {}>(carQuery);
 
 class CarsComponent extends React.Component<ICarsProps, {}> {
 
+    private unsubscribe: any;
     constructor(props: ICarsProps, context: any) {
         super(props, context);
     }
 
-
-    public componentDidMount(): void {
-        console.log('Component will mount');
-    }
-
-
     public componentWillReceiveProps(nextProps: Readonly<ICarsProps>, nextContext: any): void {
         this.onDataArrival(nextProps.data);
+        this.initSubscriptions(nextProps.data);
     }
 
     public onDataArrival = (data: any) => {
@@ -43,6 +40,28 @@ class CarsComponent extends React.Component<ICarsProps, {}> {
             </React.Fragment>
         )
     };
+
+    public componentWillUnmount(): void {
+        console.log('unsubscribing...');
+        this.unsubscribe();
+    }
+
+    private initSubscriptions = (data: any) => {
+        if(data && !data.loading) {
+            // Check for existing subscription
+            if (this.unsubscribe) {
+                // Check if props have changed and, if necessary, stop the subscription
+                return;
+            }
+
+            // Subscribe
+            console.log('init subscriptions...');
+            this.unsubscribe = data.subscribeToMore({
+                document: carSubscription,
+            });
+        }
+
+    }
 }
 
 const mapActionsToProps = {
