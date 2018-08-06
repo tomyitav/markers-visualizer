@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {ICarsListProps} from "./types/ICarsListProps";
-import {Grid, Table} from "react-bootstrap";
+import {Button, Grid, Table} from "react-bootstrap";
 import {Car} from "../../model/Car";
 
 class CarsList extends React.Component<ICarsListProps, {}> {
@@ -12,11 +12,13 @@ class CarsList extends React.Component<ICarsListProps, {}> {
     public render() {
         return (
             <Grid>
+                <h1>Cars</h1>
                 <Table striped={true} bordered={true} hover={true}>
                     <thead>
                         <tr>
                             <th>id</th>
                             <th>Name</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +35,10 @@ class CarsList extends React.Component<ICarsListProps, {}> {
                 <tr key={index}>
                     <td>{ car._id }</td>
                     <td>{car.name}</td>
+                    <td>
+                        <Button bsStyle="primary">Edit</Button>
+                        <Button bsStyle="danger">X</Button>
+                    </td>
                 </tr>
             );
         });

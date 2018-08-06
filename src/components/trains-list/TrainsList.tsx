@@ -12,6 +12,7 @@ class TrainsList extends React.Component<ITrainsListProps, {}> {
     public render() {
         return (
             <Grid>
+                <h1>trains</h1>
                 <Table striped={true} bordered={true} hover={true}>
                     <thead>
                         <tr>

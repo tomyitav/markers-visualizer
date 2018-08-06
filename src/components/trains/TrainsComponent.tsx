@@ -31,10 +31,7 @@ class TrainsComponent extends React.Component<ITrainProps, {}> {
         }
 
         return (
-            <React.Fragment>
-                <h1>trains</h1>
-                <TrainsList trains={this.props.trains}/>
-            </React.Fragment>
+            <TrainsList trains={this.props.trains}/>
         )
     };
 }

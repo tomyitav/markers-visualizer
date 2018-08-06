@@ -23,7 +23,7 @@ class CarsComponent extends React.Component<ICarsProps, {}> {
     }
 
     public onDataArrival = (data: any) => {
-        if(data && data.car) {
+        if(data && !data.loading && data.car) {
             this.props.onDataArrival(data.car);
         }
     }
@@ -34,10 +34,7 @@ class CarsComponent extends React.Component<ICarsProps, {}> {
         }
 
         return (
-            <React.Fragment>
-                <h1>Cars</h1>
-                <CarsList cars={this.props.cars}/>
-            </React.Fragment>
+            <CarsList cars={this.props.cars}/>
         )
     };
 

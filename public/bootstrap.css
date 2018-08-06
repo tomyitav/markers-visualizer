@@ -6871,6 +6871,7 @@ table-bordered > tbody > tr > td,
 table-bordered > tfoot > tr > td,
 .table-bordered > tfoot > tr > td {
   border: 1px solid #ecf0f1;
+  text-align: center;
 }
 .form-control,
 input {
