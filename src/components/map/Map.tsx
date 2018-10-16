@@ -2,10 +2,19 @@ import * as React from 'react';
 
 import {MapView} from "./view/MapView";
 
-const Map = (props: any) =>
-    <MapView
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-    />
+class Map extends React.Component<{}, {}> {
+    constructor(props: any, context: any) {
+        super(props, context);
+    }
 
-export default Map;
+    public render() {
+        return (
+            <MapView
+                containerElement={<div style={{height: `400px`}}/>}
+                mapElement={<div style={{height: `100%`}}/>}
+            />
+        )
+    }
+}
+
+export default Map
