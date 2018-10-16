@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {MapView} from "../view/MapView";
-import {Marker} from "../../../model/Marker";
+import {MapMarker} from "../../../model/MapMarker";
 import {MapProps} from "./types/MapProps";
 import {IAppState} from "../../../store/AppStore";
 import {addMarkers} from "../../../store/actions/marker-actions";
@@ -22,7 +22,7 @@ class Map extends React.Component<MapProps, {}> {
         })
     }
 
-    public handleFetchedMarkers = (markers: Marker[]) => {
+    public handleFetchedMarkers = (markers: MapMarker[]) => {
         if(markers) {
             this.props.setMarkers(markers);
         }
@@ -38,6 +38,7 @@ class Map extends React.Component<MapProps, {}> {
             <MapView
                 containerElement={<div style={{height: `400px`}}/>}
                 mapElement={<div style={{height: `100%`}}/>}
+                markers={this.props.markers}
             />
         )
     }

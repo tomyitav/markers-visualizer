@@ -2,12 +2,12 @@ import {createStore} from 'redux';
 import allReducers from "./reducers/AllReducers";
 import {Car} from "../model/Car";
 import {Train} from "../model/Train";
-import {Marker} from "../model/Marker";
+import {MapMarker} from "../model/MapMarker";
 
 export interface IAppState {
     trains: Train[],
     cars: Car[],
-    markers: Marker[],
+    markers: MapMarker[],
 }
 
 const INITIAL_STATE: IAppState = {

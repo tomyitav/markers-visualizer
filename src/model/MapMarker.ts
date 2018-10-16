@@ -1,4 +1,4 @@
-export interface Marker {
+export interface MapMarker {
     lat: number,
     lng: number
 }

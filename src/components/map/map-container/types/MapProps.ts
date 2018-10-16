@@ -1,6 +1,6 @@
-import {Marker} from "../../../../model/Marker";
+import {MapMarker} from "../../../../model/MapMarker";
 
 export interface MapProps {
-    markers: Marker[];
+    markers: MapMarker[];
     setMarkers: any
 }
