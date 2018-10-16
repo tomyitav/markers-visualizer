@@ -1,5 +1,5 @@
-## react-redux-apollo-example
+## markers-visualizer
 
-Simple todo app, using react, typescript, Create React App, and redux. Can be used as react app starter
+Google maps app, using react, typescript, Create React App, and redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
