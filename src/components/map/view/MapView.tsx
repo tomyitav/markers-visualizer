@@ -17,6 +17,7 @@ export const MapView = withGoogleMap((props: MapViewProps) => {
                             <div key={i}>
                                 <Marker
                                     position={{lat: marker.lat, lng: marker.lng}}
+                                    label={{"color": "black", "text" : "try-label"}}
                                 />
                             </div>
                         )

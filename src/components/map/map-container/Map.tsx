@@ -7,7 +7,7 @@ import {IAppState} from "../../../store/AppStore";
 import {addMarkers} from "../../../store/actions/marker-actions";
 import {connect} from "react-redux";
 
-class Map extends React.Component<MapProps, {}> {
+class MapComponent extends React.Component<MapProps, {}> {
     constructor(props: any, context: any) {
         super(props, context);
     }
@@ -52,4 +52,4 @@ const mapStateToProps = (state: IAppState) => ({
     markers: state.markers,
 })
 
-export default connect(mapStateToProps, mapActionsToProps)(Map)
+export default connect(mapStateToProps, mapActionsToProps)(MapComponent)
