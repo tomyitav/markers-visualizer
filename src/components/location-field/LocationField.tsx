@@ -12,7 +12,6 @@ class LocationField extends React.Component<LocationFieldProps, {}> {
     }
 
     public onSuggestSelect = (place: Suggest) => {
-        console.log('Got location- ', place);
         const {location: {lat, lng}} = place;
         this.props.onSelectLocation({lat, lng});
     }
