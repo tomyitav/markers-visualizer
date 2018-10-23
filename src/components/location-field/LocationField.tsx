@@ -2,14 +2,19 @@ import * as React from 'react';
 // import {FieldProps} from 'formik';
 import './LocationField.css'
 import Geosuggest, {Suggest} from 'react-geosuggest';
+import {LocationFieldProps} from "./types/LocationFieldProps";
+import {addSingleMarker} from "../../store/actions/marker-actions";
+import {connect} from "react-redux";
 
-class LocationField extends React.Component<{}, {}> {
-    constructor(props: any, context: any) {
+class LocationField extends React.Component<LocationFieldProps, {}> {
+    constructor(props: LocationFieldProps, context: any) {
         super(props, context);
     }
 
     public onSuggestSelect = (place: Suggest) => {
         console.log('Got location- ', place);
+        const {location: {lat, lng}} = place;
+        this.props.onSelectLocation({lat, lng});
     }
 
     public render() {
@@ -30,4 +35,8 @@ class LocationField extends React.Component<{}, {}> {
     }
 }
 
-export default LocationField
+const mapActionsToProps = {
+    onSelectLocation: addSingleMarker
+};
+
+export default connect(undefined, mapActionsToProps)(LocationField)
