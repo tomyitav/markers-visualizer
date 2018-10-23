@@ -1,5 +1,6 @@
 import * as React from 'react';
 // import {FieldProps} from 'formik';
+import './LocationField.css'
 import Geosuggest, {Suggest} from 'react-geosuggest';
 
 class LocationField extends React.Component<{}, {}> {
