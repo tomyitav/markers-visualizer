@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withGoogleMap, GoogleMap } from "react-google-maps"
 import {MapViewProps} from "./types/MapViewProps";
 import {MapMarker} from "../../../model/MapMarker";
+import MarkerWrapper from "../marker-wrapper/MarkerWrapper";
 
 export const MapView = withGoogleMap((props: MapViewProps) => {
     const {markers} = props;
@@ -15,7 +16,7 @@ export const MapView = withGoogleMap((props: MapViewProps) => {
                     markers && markers.map((marker: MapMarker, i: number) => {
                         return (
                             <div key={i}>
-                                <Marker
+                                <MarkerWrapper
                                     position={{lat: marker.lat, lng: marker.lng}}
                                     label={{"color": "black", "text" : "try-label"}}
                                 />
