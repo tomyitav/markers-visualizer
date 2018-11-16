@@ -1,4 +1,4 @@
-import {MapMarker} from "../../../../model/MapMarker";
+import {MapMarker} from "../../../model/MapMarker";
 
 export interface MapProps {
     markers: MapMarker[];

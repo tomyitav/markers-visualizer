@@ -1,29 +1,15 @@
 import * as React from 'react';
-
-import { withGoogleMap, GoogleMap } from "react-google-maps"
+import {GoogleMap, withGoogleMap} from "react-google-maps"
 import {MapViewProps} from "./types/MapViewProps";
-import {MapMarker} from "../../../model/MapMarker";
-import MarkerWrapper from "../marker-wrapper/MarkerWrapper";
+import MessengersLayer from "../layers/messengers/MessengersLayer";
 
 export const MapView = withGoogleMap((props: MapViewProps) => {
-    const {markers} = props;
         return (
             <GoogleMap
             defaultZoom={8}
             defaultCenter={{lat: -34.397, lng: 150.644}}
         >
-                {
-                    markers && markers.map((marker: MapMarker, i: number) => {
-                        return (
-                            <div key={i}>
-                                <MarkerWrapper
-                                    position={{lat: marker.lat, lng: marker.lng}}
-                                    label={{"color": "black", "text" : "try-label"}}
-                                />
-                            </div>
-                        )
-                    })
-                }
+                <MessengersLayer/>
         </GoogleMap>
         )
     }

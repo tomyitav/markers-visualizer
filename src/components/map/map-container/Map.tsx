@@ -1,8 +1,7 @@
 import * as React from 'react';
-
 import {MapView} from "../view/MapView";
 import {MapMarker} from "../../../model/MapMarker";
-import {MapProps} from "./types/MapProps";
+import {MapProps} from "./MapProps";
 import {IAppState} from "../../../store/AppStore";
 import {addMarkers} from "../../../store/actions/marker-actions";
 import {connect} from "react-redux";
