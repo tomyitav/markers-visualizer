@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {MapView} from "../view/MapView";
-import {MapMarker} from "../../../model/MapMarker";
 import {MapProps} from "./MapProps";
 import {IAppState} from "../../../store/AppStore";
 import {addMarkers} from "../../../store/actions/marker-actions";
@@ -11,33 +10,11 @@ class MapComponent extends React.Component<MapProps, {}> {
         super(props, context);
     }
 
-    public fetchMarkers = (): Promise<any> => {
-        return new Promise((res) => {
-            setTimeout(() => {
-                res([
-                    { lat: -34.397, lng: 150.644 }
-                ])
-            }, 1000)
-        })
-    }
-
-    public handleFetchedMarkers = (markers: MapMarker[]) => {
-        if(markers) {
-            this.props.setMarkers(markers);
-        }
-    }
-
-    public async componentDidMount(): Promise<any> {
-        const markers = await this.fetchMarkers();
-        this.handleFetchedMarkers(markers);
-    }
-
     public render() {
         return (
             <MapView
                 containerElement={<div style={{height: `400px`}}/>}
                 mapElement={<div style={{height: `100%`}}/>}
-                markers={this.props.markers}
             />
         )
     }
