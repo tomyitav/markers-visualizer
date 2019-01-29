@@ -1,13 +1,19 @@
 import * as React from 'react';
 import {graphql} from "react-apollo";
 import messengersQuery from "../../../../gql/queries/messengers-query";
-import {IMessengersLayerProps} from "./types/IMessengersLayerProps";
 import {MessengersView} from "./MessengersView";
 import {IAppState} from "../../../../store/AppStore";
 import {addMessengers} from "../../../../store/actions/messengers-actions";
 import {connect} from "react-redux";
+import {Messenger} from "../../../../model/Messenger";
 
 const MessengersQL = graphql<{}, {}>(messengersQuery, {options: {pollInterval: 10000}});
+
+export interface IMessengersLayerProps {
+    messengers: Messenger[];
+    data: any,
+    onNewMessengers: (messengers: Messenger[]) => void;
+}
 
 class MessengersLayer extends React.Component<IMessengersLayerProps, {}> {
     constructor(props: any, context: any) {
@@ -25,8 +31,8 @@ class MessengersLayer extends React.Component<IMessengersLayerProps, {}> {
     }
 
     private onDataArrival(data: any) {
-        if(data && !data.loading && data.MapMarkers) {
-            this.props.onNewMessengers(data.MapMarkers);
+        if(data && !data.loading && data.Messengers) {
+            this.props.onNewMessengers(data.Messengers);
         }
     }
 }

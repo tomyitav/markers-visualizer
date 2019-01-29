@@ -2,12 +2,13 @@ import gql from "graphql-tag";
 
 const messengersQuery = gql`
     {
-        MapMarkers {
-            location {
+        Messengers {
+            location{
                 lat
                 lng
             }
             kind
+            ts
         }
     }`
 

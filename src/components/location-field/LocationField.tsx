@@ -2,9 +2,12 @@ import * as React from 'react';
 // import {FieldProps} from 'formik';
 import './LocationField.css'
 import Geosuggest, {Suggest} from 'react-geosuggest';
-import {LocationFieldProps} from "./types/LocationFieldProps";
 import {addSingleMarker} from "../../store/actions/marker-actions";
 import {connect} from "react-redux";
+
+export interface LocationFieldProps {
+    onSelectLocation?: any;
+}
 
 class LocationField extends React.Component<LocationFieldProps, {}> {
     constructor(props: LocationFieldProps, context: any) {

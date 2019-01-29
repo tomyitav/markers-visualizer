@@ -1,7 +1,10 @@
 import * as React from 'react';
-import {IMessengersViewProps} from "./types/IMessengersViewProps";
 import MarkerWrapper from "../../marker-wrapper/MarkerWrapper";
 import {Messenger} from "../../../../model/Messenger";
+
+export interface IMessengersViewProps {
+    messengers: Messenger[];
+}
 
 export const MessengersView = (props: IMessengersViewProps) => {
     const {messengers} = props;
