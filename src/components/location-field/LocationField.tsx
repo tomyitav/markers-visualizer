@@ -10,7 +10,7 @@ import {Location} from "../../model/Location";
 
 export interface LocationFieldProps {
     onSelectLocation?: any;
-    addLocation: (location: Location | undefined) => void;
+    addLocation: (location: Location) => void;
 }
 
 const AddLocationQL = graphql<{}, {}>(addLocation, {
