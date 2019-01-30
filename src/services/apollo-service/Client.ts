@@ -13,13 +13,11 @@ const defaultOptions = {
     },
 }
 
-const httpLink = new HttpLink({
+export const httpLink = new HttpLink({
     uri: 'http://localhost:8080/graphql'
 });
 
-
-
-const client = new ApolloClient({
+export const client = new ApolloClient({
     // By default, this client will send queries to the
     //  `/graphql` endpoint on the same host
     // Pass the configuration option { uri: YOUR_GRAPHQL_API_URL } to the `HttpLink` to connect
@@ -28,4 +26,3 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
     defaultOptions: (defaultOptions) as any
 });
-export default client;
